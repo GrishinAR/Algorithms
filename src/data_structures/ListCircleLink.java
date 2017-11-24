@@ -1,7 +1,6 @@
 package data_structures;
 
-
-public class ListOneLink<E> implements Data<E> {
+public class ListCircleLink<E> implements Data<E> {
     private Node<E> bottom;
     private Node<E> current;
     private Node<E> element;
@@ -10,10 +9,11 @@ public class ListOneLink<E> implements Data<E> {
 
     @Override
     public E add(E e) {
-        element =  new Node<>(e, null);
-        if(size == 0) {
+        if (size == 0) {
+            element = new Node<>(e, null);
             bottom = element;
         } else {
+            element = new Node<>(e, bottom);
             current.next = element;
         }
         current = element;
@@ -23,32 +23,22 @@ public class ListOneLink<E> implements Data<E> {
 
     @Override
     public E get() {
-        if(size == 0) {
+        if (size == 0) {
             throw new IndexOutOfBoundsException("Пустой лист");
         }
-        Node<E> element = bottom;
-        E returnElement = current.value;
-        while(element != null) {
-            if(element.next == current) {
-                element.next = null;
-                current = element;
-            }
-            element = element.next;
-        }
-        size--;
-        return returnElement;
+
+        return null;
     }
 
     @Override
     public E[] toArray() {
-        if(size == 0) {
+        if (size == 0) {
             return null;
         }
         Object[] elements;
         elements = new Object[size];
         Node<E> element = bottom;
-        int i = 0;
-        while(element != null) {
+        for (int i = 0; i < elements.length; i++) {
             elements[i] = element.value;
             element = element.next;
             i++;
@@ -59,6 +49,25 @@ public class ListOneLink<E> implements Data<E> {
     @Override
     public int size() {
         return size;
+    }
+
+    /**
+     * Метод перебирает по кругу элементы.
+     *
+     * @param step количество шагов
+     * @return массив отобранных элементов
+     */
+    public E[] runningInCircle(int step) {
+        if(size <= 1) {
+            throw new IndexOutOfBoundsException("Мало элементов в листе");
+        }
+        Object[] elements = new Object[step];
+        Node<E> element = bottom;
+        for (int i = 0; i < step; i++) {
+            elements[i] = element.value;
+            element = element.next;
+        }
+        return (E[])elements;
     }
 
     /**
