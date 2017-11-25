@@ -1,21 +1,25 @@
 package test.data_structures;
 
-import data_structures.ListCircleLink;
+import data_structures.Queue;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class ListCircleLinkTest {
-    private ListCircleLink<Integer> list = new ListCircleLink<>();
+class QueueTest {
+    private Queue<Integer> list = new Queue<>();
     private Integer[] result = new Integer[100];
 
     @BeforeEach
     public void init() {
         for (int i = 0; i < 100; i++) {
             list.add(i);
-            result[i] = i;
+        }
+        int j = 0;
+        for (int i = 99; i >= 0 ; i--) {
+            result[j] = i;
+            j++;
         }
     }
 
@@ -32,12 +36,5 @@ class ListCircleLinkTest {
     @Test
     public void testAdd() throws Exception {
         assertArrayEquals(result, list.toArray());
-    }
-
-    @DisplayName("Проверка runningInRound")
-    @Test
-    public void testRunningInRound() {
-        Object[] r = list.runningInCircle(1200);
-        assertEquals(new Integer(0), r[200]);
     }
 }

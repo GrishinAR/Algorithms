@@ -1,22 +1,25 @@
 package data_structures;
 
+/**
+ * Реализация стека.
+ *
+ * @author Grishin A.R.
+ *
+ */
+public class Stack<E> implements Data<E> {
+    Node<E> bottom;
+    Node<E> element;
 
-public class ListOneLink<E> implements Data<E> {
-    private Node<E> bottom;
-    private Node<E> current;
-    private Node<E> element;
-
-    private int size;
+    int size;
 
     @Override
     public E add(E e) {
-        element =  new Node<>(e, null);
         if(size == 0) {
-            bottom = element;
+            element = new Node<>(e, null);
         } else {
-            current.next = element;
+            element = new Node<>(e, bottom);
         }
-        current = element;
+        bottom = element;
         size++;
         return element.value;
     }
@@ -25,18 +28,15 @@ public class ListOneLink<E> implements Data<E> {
     public E get() {
         if(size == 0) {
             throw new IndexOutOfBoundsException("Пустой лист");
-        }
-        Node<E> element = bottom;
-        E value = current.value;
-        while(element != null) {
-            if(element.next == current) {
-                element.next = null;
-                current = element;
-            }
-            element = element.next;
+        } else if(size == 1) {
+            bottom = null;
+            size--;
+            return null;
+        } else {
+            bottom = bottom.next;
         }
         size--;
-        return value;
+        return bottom.value;
     }
 
     @Override

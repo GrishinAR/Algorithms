@@ -33,7 +33,7 @@ public class ListTwoLink<E> implements Data<E> {
         if(size == 0) {
             throw new IndexOutOfBoundsException("Пустой лист");
         }
-        E returnElement = top.value;
+        E value = top.value;
         if(size > 1) {
             top.prev.next = null;
             top = top.prev;
@@ -42,7 +42,7 @@ public class ListTwoLink<E> implements Data<E> {
             bottom = null;
         }
         size--;
-        return returnElement;
+        return value;
     }
 
     @Override

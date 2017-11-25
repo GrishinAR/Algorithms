@@ -47,6 +47,44 @@ Link [wiki][stack-wiki].
 
 Link [wiki][heap-wiki].
 
+#### Двоичная куча
+![alt text][binary-heap-image]
+
+Двоичная куча, пирамида, или сортирующее дерево — такое двоичное дерево, для которого выполнены три условия:
+* Значение в любой вершине не меньше, чем значения её потомков
+* Глубина всех листьев (расстояние до корня) отличается не более чем на 1 слой
+* Последний слой заполняется слева направо без «дырок»
+
+Link [wiki][binary-heap-wiki].
+
+#### Биномиальная куча
+![alt text][binomial-heap-image]
+
+Биномиальная куча — структура данных, реализующая абстрактный тип данных «очередь с приоритетом», которая представляет собой набор биномиальных деревьев с двумя свойствами:
+* Ключ каждой вершины не меньше ключа её родителя
+* Все биномиальные деревья имеют разный размер
+
+Link [wiki][binomial-heap-wiki].
+
+#### Фибоначчиева куча
+![alt text][fibonacci-heap-image]
+
+Фибоначчиева куча — структура данных, представляющая собой набор деревьев, упорядоченных в соответствии со свойством неубывающей пирамиды. Фибоначчиевы кучи были введены Майклом Фредманом и Робертом Тарьяном в 1984 году.
+Структура является реализацией абстрактного типа данных «Очередь с приоритетом», и замечательна тем, что операции, в которых не требуется удаление, имеют амортизированное время работы, равное O(1) (для двоичной кучи и биномиальной кучи амортизационное время работы равно O(log n)). Кроме стандартных операций INSERT, MIN, EXTRACT-MIN, фибоначчиева куча позволяет за время O(1) выполнять операцию UNION слияния двух куч.
+
+Link [wiki][fibonacci-heap-wiki].
+
+### Хэш-таблица (Hash)
+Хэш-таблица или хеш-таблица — это структура данных, реализующая интерфейс ассоциативного массива, а именно, она позволяет хранить пары (ключ, значение) и выполнять три операции: операцию добавления новой пары, операцию поиска и операцию удаления пары по ключу.
+Существуют два основных варианта хеш-таблиц: с цепочками и открытой адресацией. Хеш-таблица содержит некоторый массив {\displaystyle H} H, элементы которого есть пары (хеш-таблица с открытой адресацией) или списки пар (хеш-таблица с цепочками).
+
+Link [wiki][hash-wiki].
+
+#### Метод цепочек
+
+
+#### Открытая адресация
+
 ## Сортировки
 ### Пузырьковая
 ## Перевод систем исчисления
@@ -57,6 +95,10 @@ Link [wiki][heap-wiki].
 [queue-wiki]: https://ru.wikipedia.org/wiki/Очередь_(программирование)
 [stack-wiki]: https://ru.wikipedia.org/wiki/Стек
 [heap-wiki]: https://ru.wikipedia.org/wiki/Куча_(структура_данных)
+[binary-heap-image]: https://ru.wikipedia.org/wiki/Двоичная_куча
+[binomial-heap-wiki]: https://ru.wikipedia.org/wiki/Биномиальная_куча
+[fibonacci-heap-wiki]: https://ru.wikipedia.org/wiki/Фибоначчиева_куча
+[hash-wiki]: https://ru.wikipedia.org/wiki/Хеш-таблица
 
 [list-one-image]: https://upload.wikimedia.org/wikipedia/commons/thumb/9/9c/Single_linked_list.png/800px-Single_linked_list.png "Single linked"
 [list-two-image]: https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/Doubly_linked_list.png/800px-Doubly_linked_list.png "Doubly linked"
@@ -64,4 +106,6 @@ Link [wiki][heap-wiki].
 [queue-image]: https://upload.wikimedia.org/wikipedia/commons/thumb/5/52/Data_Queue.svg/440px-Data_Queue.svg.png "Queue"
 [stack-image]: https://upload.wikimedia.org/wikipedia/commons/2/23/Stack_preview.png "Stack"
 [heap-image]: https://upload.wikimedia.org/wikipedia/commons/thumb/3/38/Max-Heap.svg/480px-Max-Heap.svg.png "Heap"
-
+[heap-binary-image]: https://upload.wikimedia.org/wikipedia/commons/0/07/Сортирующее_дерево.svg "Binary heap"
+[binomial-heap-image]: https://upload.wikimedia.org/wikipedia/commons/1/17/Binomial_heap_example.png "Binomial heap"
+[fibonacci-heap-image]: https://upload.wikimedia.org/wikipedia/commons/c/cb/Fibbonachi_kucha.GIF "Fibonacci heap"

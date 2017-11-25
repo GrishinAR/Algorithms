@@ -26,8 +26,17 @@ public class ListCircleLink<E> implements Data<E> {
         if (size == 0) {
             throw new IndexOutOfBoundsException("Пустой лист");
         }
-
-        return null;
+        Node<E> element = bottom;
+        E value = current.value;
+        for (int i = 0; i <= size; i++) {
+            if(element.next == current) {
+                element.next = bottom;
+                current = element;
+            }
+            element = element.next;
+        }
+        size--;
+        return value;
     }
 
     @Override
@@ -41,7 +50,6 @@ public class ListCircleLink<E> implements Data<E> {
         for (int i = 0; i < elements.length; i++) {
             elements[i] = element.value;
             element = element.next;
-            i++;
         }
         return (E[])elements;
     }

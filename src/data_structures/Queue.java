@@ -1,22 +1,27 @@
 package data_structures;
 
+/**
+ * Реализация очереди.
+ *
+ * @author Grishin A.R.
+ *
+ */
+public class Queue<E> implements Data<E> {
+    Node<E> bottom;
+    Node<E> top;
+    Node<E> element;
 
-public class ListOneLink<E> implements Data<E> {
-    private Node<E> bottom;
-    private Node<E> current;
-    private Node<E> element;
-
-    private int size;
+    int size;
 
     @Override
     public E add(E e) {
-        element =  new Node<>(e, null);
         if(size == 0) {
-            bottom = element;
+            element = new Node<>(e, null);
+            top = element;
         } else {
-            current.next = element;
+            element = new Node<>(e, bottom);
         }
-        current = element;
+        bottom = element;
         size++;
         return element.value;
     }
@@ -27,11 +32,11 @@ public class ListOneLink<E> implements Data<E> {
             throw new IndexOutOfBoundsException("Пустой лист");
         }
         Node<E> element = bottom;
-        E value = current.value;
+        E value = top.value;
         while(element != null) {
-            if(element.next == current) {
+            if(element.next == top) {
                 element.next = null;
-                current = element;
+                top = element;
             }
             element = element.next;
         }
